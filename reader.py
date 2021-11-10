@@ -21,5 +21,5 @@ print("Found RFID tag: ")
 
 for med in media_list:
     if(med[1] == code):
-        print("playing" + med[0] + " at " + med[3])
+        print("playing" + med[0] + " at " + med[2])
         video_player.playmovie(med[2])
