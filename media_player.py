@@ -4,7 +4,7 @@ import logging
 
 
 def is_playing():
-    """Check if OMX Player is playing a Video/Audio file 
+    """Check if OMX Player is playing a Video/Audio file
     (True if at least 2 OMX Processes)"""
 
     processname = 'omxplayer'
@@ -31,5 +31,16 @@ def play_media(filename):
         os.system(command1)
 
     # starting OMXPlayer subprocess with video or audio file
+
     myprocess = subprocess.Popen(['omxplayer', filename], stdin=subprocess.PIPE,
                                  stdout=subprocess.PIPE, stderr=subprocess.PIPE, close_fds=True)
+
+
+def pauseMedia():
+    try:
+        myprocess
+    except NameError:
+        myprocess.stdin.write("p")
+        logging.debug('Pausing movie - or - Playing movie')
+    else:
+        logging.debug('Nothing to pause')
