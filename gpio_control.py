@@ -2,7 +2,7 @@ from gpiozero import Button
 from subprocess import check_call
 
 # GPIO   2, 4, 17 and 10
-button1 = Button(2, bounce_time=0.1)
+button1 = Button(2, hold_time=2)
 button2 = Button(4, bounce_time=0.1)
 button3 = Button(17, bounce_time=0.1)
 button4 = Button(10, bounce_time=0.1)
