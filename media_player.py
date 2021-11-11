@@ -4,7 +4,9 @@ import logging
 
 
 def is_playing():
-    """Check if OMX Player is playing a Video (True if at least 2 OMX Processes)"""
+    """Check if OMX Player is playing a Video/Audio file 
+    (True if at least 2 OMX Processes)"""
+
     processname = 'omxplayer'
     tmp = os.popen("ps -Af").read()
     proccesscount = tmp.count(processname)

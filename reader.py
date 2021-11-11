@@ -1,5 +1,5 @@
 from typing import Match
-import video_player
+import media_player
 import logging
 
 
@@ -16,7 +16,7 @@ def check_for_RFIDMatch(code, media_list):
     for media in media_list:
         if(media[1] == code):
             logging.debug("playing" + media[0] + " at " + media[2])
-            video_player.play_media(media[2])
+            media_player.play_media(media[2])
 
 
 def check_for_input():
