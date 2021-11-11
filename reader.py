@@ -15,12 +15,12 @@ def check_for_RFIDMatch(code, media_list):
     # Check if found code occurs in media list
     for media in media_list:
         if(media[1] == code):
-            logging.debug("playing" + media[0] + " at " + media[2])
+            logging.debug("Playing" + media[0] + " at " + media[2])
             media_player.play_media(media[2])
 
 
 def check_for_input():
-    code = input('Enter your input:')
+    code = input('Scan an RFID tag')
     # Strip first three Characters to avoid escape characters
     code = code[3:]
     # Cast to int

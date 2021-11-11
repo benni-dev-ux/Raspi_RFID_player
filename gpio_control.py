@@ -1,4 +1,5 @@
 from gpiozero import Button
+from subprocess import check_call
 
 # GPIO   2, 4, 17 and 10
 button1 = Button(2, bounce_time=0.1)
@@ -8,7 +9,8 @@ button4 = Button(10, bounce_time=0.1)
 
 
 def powerButton():
-    print("power button pressed")
+    print("shutting down")
+    check_call(['sudo', 'poweroff'])
 
 
 def pauseButton():
