@@ -10,14 +10,11 @@ audio1 = ["testaudio", 6268576, "./assets/testaudio.mp3"]
 
 media_list = []
 
-media_list.append(video1)
-media_list.append(audio1)
-
 
 def check_for_RFIDMatch(code, media_list):
     # Check if found code occurs in media list
     for media in media_list:
-        if(media[1] == code):
+        if(media[code]):
             logging.debug("playing" + media[0] + " at " + media[2])
             video_player.play_media(media[2])
 
