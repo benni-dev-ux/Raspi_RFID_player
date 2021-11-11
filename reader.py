@@ -14,7 +14,7 @@ media_list = []
 def check_for_RFIDMatch(code, media_list):
     # Check if found code occurs in media list
     for media in media_list:
-        if(media[code]):
+        if(media[1] == code):
             logging.debug("playing" + media[0] + " at " + media[2])
             video_player.play_media(media[2])
 
