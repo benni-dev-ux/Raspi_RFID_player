@@ -1,6 +1,10 @@
 import subprocess
 import os
 import logging
+import time
+from omxplayer.player import OMXPlayer
+
+
 
 
 def is_playing():
@@ -21,7 +25,6 @@ def is_playing():
 
 def play_media(filename):
 
-    global myprocess
 
     if is_playing():
         logging.debug("Cancelling currently playing video/audio")
@@ -31,16 +34,13 @@ def play_media(filename):
         os.system(command1)
 
     # starting OMXPlayer subprocess with video or audio file
-
-    myprocess = subprocess.Popen(['omxplayer', filename], stdin=subprocess.PIPE,
-                                 stdout=subprocess.PIPE, stderr=subprocess.PIPE, close_fds=True)
-
+    player = OMXPlayer(filename,dbus_name='org.mpris.MediaPlayer2.omxplayer1')
+    #myprocess = subprocess.Popen(['omxplayer', filename], stdin=subprocess.PIPE,
+     #                            stdout=subprocess.PIPE, stderr=subprocess.PIPE, close_fds=True)
+    time.sleep(2)
+    return player
 
 def pauseMedia():
-    try:
-        myprocess
-    except NameError:
-        myprocess.stdin.write("p")
-        logging.debug('Pausing movie - or - Playing movie')
-    else:
-        logging.debug('Nothing to pause')
+
+    myprocess.stdin.write("p")
+
