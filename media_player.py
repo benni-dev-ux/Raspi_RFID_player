@@ -1,10 +1,6 @@
-import subprocess
 import os
-import logging
-import time
+
 from omxplayer.player import OMXPlayer
-
-
 
 
 def is_playing():
@@ -24,25 +20,24 @@ def is_playing():
 
 
 def play_media(filename):
-
-
+    """ Plays file (audio or video) in OMXPlayer"""
     if is_playing():
-        logging.debug("Cancelling currently playing video/audio")
+        print("Cancelling currently playing video/audio")
 
         # Kill existing OMX Processes
         command1 = "sudo killall -s 9 omxplayer.bin"
         os.system(command1)
 
     # starting OMXPlayer subprocess with video or audio file
-    player = OMXPlayer(filename,dbus_name='org.mpris.MediaPlayer2.omxplayer1')
-    #myprocess = subprocess.Popen(['omxplayer', filename], stdin=subprocess.PIPE,
-     #                            stdout=subprocess.PIPE, stderr=subprocess.PIPE, close_fds=True)
-    #time.sleep(2)
+    player = OMXPlayer(filename, dbus_name='org.mpris.MediaPlayer2.omxplayer1')
+    # myprocess = subprocess.Popen(['omxplayer', filename], stdin=subprocess.PIPE,
+    #                            stdout=subprocess.PIPE, stderr=subprocess.PIPE, close_fds=True)
+    # time.sleep(2)
     return player
 
-def stopAllMedia():
 
-    # Kill existing OMX Processes
+def stopAllMedia():
+    """Kills all existing OMX processes"""
+
     command1 = "sudo killall -s 9 omxplayer.bin"
     os.system(command1)
-
