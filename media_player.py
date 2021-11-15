@@ -37,10 +37,12 @@ def play_media(filename):
     player = OMXPlayer(filename,dbus_name='org.mpris.MediaPlayer2.omxplayer1')
     #myprocess = subprocess.Popen(['omxplayer', filename], stdin=subprocess.PIPE,
      #                            stdout=subprocess.PIPE, stderr=subprocess.PIPE, close_fds=True)
-    time.sleep(2)
+    #time.sleep(2)
     return player
 
-def pauseMedia():
+def stopAllMedia():
 
-    myprocess.stdin.write("p")
+    # Kill existing OMX Processes
+    command1 = "sudo killall -s 9 omxplayer.bin"
+    os.system(command1)
 
