@@ -11,12 +11,12 @@ def is_playing():
     tmp = os.popen("ps -Af").read()
     proccesscount = tmp.count(processname)
 
-    is_playing = False
+    is_currently_playing = False
 
-    if (proccesscount >= 1):
-        is_playing = True
+    if proccesscount >= 1:
+        is_currently_playing = True
 
-    return is_playing
+    return is_currently_playing
 
 
 def play_media(filename):
