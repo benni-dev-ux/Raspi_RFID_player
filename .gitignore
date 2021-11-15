@@ -299,3 +299,8 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,python,windows
+.idea/misc.xml
+.idea/inspectionProfiles/profiles_settings.xml
+.idea/modules.xml
+.idea/Raspi_RFID_player.iml
+.idea/vcs.xml
