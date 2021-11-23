@@ -3,6 +3,7 @@ from subprocess import check_call
 from gpiozero import Button
 
 import media_player
+import media.media_list
 
 
 def power_button():
@@ -57,12 +58,14 @@ def main():
 
 
 # Testfiles
-video1 = ["testvideo", 6267256,
-          "/home/pi/Raspi_RFID_player/assets/testvideo.mp4"]
-audio1 = ["testaudio", 6268576,
-          "/home/pi/Raspi_RFID_player/assets/testaudio.mp3"]
+# video1 = ["testvideo", 6267256,
+#          "/home/pi/Raspi_RFID_player/assets/testvideo.mp4"]
+# audio1 = ["testaudio", 6268576,
+#          "/home/pi/Raspi_RFID_player/assets/testaudio.mp3"]
+#
+#media_list = [video1, audio1]
 
-media_list = [video1, audio1]
+media_list = media.media_list.list
 
 
 def check_for_input():
