@@ -1,14 +1,14 @@
-# Raspi_RFID_player
+# RFID Media Player on Raspberry Pi
 
-Playing video and audio files triggered by RFID cards on raspberry pi using OMXPlayer. Button controls for pause, skip, back.
+Playing video and audio files triggered by RFID cards on raspberry pi using OMXPlayer. Button controls for pause, skip, back and forward.
 
 ## Hardware
 
-- Raspberry Pi 4
+- Raspberry Pi 3b
 - Neuftech USB RFID Reader
 - 125 kHz RFID cards
 
-## How To
+## Setup Guide
 
 1.  Setup a raspberry pi with Raspberry OS
 2.  Clone this project to /home/pi
@@ -22,18 +22,18 @@ Playing video and audio files triggered by RFID cards on raspberry pi using OMXP
 
 ## Running the script on startup
 
-To run the reader when the py is started, add id to .bashrc
+To run the reader when the py is started, add it to .bashrc
 
-Edit .bashrc
+Edit .bashrc with nano
 
     sudo nano /home/pi/.bashrc
 
-Add at the end of the file add:
+At the end of the file add:
 
     echo Running at boot
     sudo python3 /home/pi/Raspi_RFID_player/reader.py
 
-See [link](https://www.dexterindustries.com/howto/run-a-program-on-your-raspberry-pi-at-startup/) for mor detailed insruction
+See [link](https://www.dexterindustries.com/howto/run-a-program-on-your-raspberry-pi-at-startup/) for more detailed instruction
 
 ## Adding Button Controls
 
