@@ -15,16 +15,16 @@ def pause_button():
     print("\n Pause button pressed")
 
     try:
-        playerOB
+        player
     except NameError:
         print("\n No music player defined")
     else:
-        playerOB.play_pause()
+        player.play_pause()
 
 
 def back_button():
     print("\n Stopping all Media")
-    media_player.stopAllMedia()
+    media_player.stop_all_media()
 
 
 def forward_button():
@@ -33,7 +33,7 @@ def forward_button():
 
 def main():
     print("\n RFID Player Started")
-    global playerOB
+    global player
 
     # GPIO   3, 4, 17 and 10
     button1 = Button(3, hold_time=2)
@@ -51,10 +51,10 @@ def main():
     while True:
         code = check_for_input()
         # Check if found code occurs in media list
-        for media in media_list:
-            if media[1] == code:
-                print("Playing " + media[0] + " at " + media[2])
-                playerOB = media_player.play_media(media[2])
+        for m in media_list:
+            if m[1] == code:
+                print("Playing " + m[0] + " at " + m[2])
+                player = media_player.play_media(m[2])
 
 
 # Testfiles
@@ -63,7 +63,7 @@ def main():
 # audio1 = ["testaudio", 6268576,
 #          "/home/pi/Raspi_RFID_player/assets/testaudio.mp3"]
 #
-#media_list = [video1, audio1]
+# media_list = [video1, audio1]
 
 media_list = media.media_list.list
 
