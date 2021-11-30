@@ -4,8 +4,8 @@
 from subprocess import run
 
 
-def toggleDisplay(active):
-    if(active):
-        run('vgencmd display_power 1', shell=True)
+def toggle_display(active):
+    if active:
+        run('vcgencmd display_power 1', shell=True)
     else:
-        run('vgencmd display_power 0', shell=True)
+        run('vcgencmd display_power 0', shell=True)

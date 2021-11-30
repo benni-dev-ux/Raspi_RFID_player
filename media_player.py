@@ -2,6 +2,9 @@ import os
 
 from omxplayer.player import OMXPlayer
 
+from reader import SCREEN_TURN_OFF
+from screen_toggle import *
+
 
 def is_playing():
     """Check if OMX Player is playing a Video/Audio file
@@ -27,6 +30,13 @@ def play_media(filename):
         # Kill existing OMX Processes
         command1 = "sudo killall -s 9 omxplayer.bin"
         os.system(command1)
+
+    # toggle screen off for audio
+    if SCREEN_TURN_OFF:
+        if filename.endswith(".mp4"):
+            toggle_display(True)
+        elif filename.endswith(".mp3"):
+            toggle_display(False)
 
     # starting OMXPlayer subprocess with video or audio file
     player = OMXPlayer(filename, dbus_name='org.mpris.MediaPlayer2.omxplayer1')

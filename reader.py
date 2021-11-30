@@ -2,8 +2,13 @@ from subprocess import check_call
 
 from gpiozero import Button
 
-import media_player
 import media.media_list
+import media_player
+from screen_toggle import *
+
+# Settings
+# Toggles screen of when playing audio
+SCREEN_TURN_OFF = True
 
 
 def power_button():
@@ -29,6 +34,8 @@ def back_button():
 
 def forward_button():
     print("\n forward button pressed")
+
+    toggle_display(True)
 
 
 def main():
