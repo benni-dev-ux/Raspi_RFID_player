@@ -39,7 +39,8 @@ def play_media(filename):
             toggle_display(False)
 
     # starting OMXPlayer subprocess with video or audio file
-    player = OMXPlayer(filename, dbus_name='org.mpris.MediaPlayer2.omxplayer1')
+    player = OMXPlayer(filename, args="-o local",
+                       dbus_name='org.mpris.MediaPlayer2.omxplayer1')
     return player
 
 
