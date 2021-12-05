@@ -31,7 +31,7 @@ Edit .bashrc with nano
 At the end of the file add:
 
     echo Running at boot
-    sudo python3 /home/pi/Raspi_RFID_player/reader.py
+    (sleep 3 %% python3 /home/pi/Raspi_RFID_player/reader.py)
 
 See [link](https://www.dexterindustries.com/howto/run-a-program-on-your-raspberry-pi-at-startup/) for more detailed instruction
 
