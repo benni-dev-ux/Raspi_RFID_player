@@ -1,5 +1,6 @@
 from subprocess import check_call
 
+import pygame
 from gpiozero import Button
 
 import media.media_list
@@ -7,8 +8,8 @@ import media_player
 from screen_toggle import *
 
 # Settings
-# Toggles screen of when playing audio
 SCREEN_TURN_OFF = True
+START_UP_SOUND = True
 
 
 def power_button():
@@ -39,7 +40,12 @@ def forward_button():
 
 
 def main():
-    print("\n RFID Player Started")
+    if START_UP_SOUND:
+        startup = pygame.mixer.Sound("/home/pi/Raspi_RFID_player/assets/startup.wav")
+        startup.play()
+
+    print("\n RFID Player Ready")
+
     global player
 
     # GPIO   3, 4, 17 and 10
