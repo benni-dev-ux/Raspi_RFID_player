@@ -4,6 +4,7 @@ from omxplayer.player import OMXPlayer
 
 from reader import SCREEN_TURN_OFF
 from screen_toggle import *
+import reader
 
 
 def is_playing():
@@ -39,7 +40,10 @@ def play_media(filename):
             toggle_display(False)
 
     # starting OMXPlayer subprocess with video or audio file
-    player = OMXPlayer(filename, args="-o local",
+    args = ""
+    if (reader.FORCE_ANALOG_SOUND):
+        args = "-o local"
+    player = OMXPlayer(filename, args=args,
                        dbus_name='org.mpris.MediaPlayer2.omxplayer1')
     return player
 

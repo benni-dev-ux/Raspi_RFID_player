@@ -8,8 +8,9 @@ import media_player
 from screen_toggle import *
 
 # Settings
-SCREEN_TURN_OFF = True
+SCREEN_TURN_OFF = False
 START_UP_SOUND = True
+FORCE_ANALOG_SOUND = False
 
 
 def power_button():
@@ -41,7 +42,8 @@ def forward_button():
 
 def main():
     if START_UP_SOUND:
-        startup = pygame.mixer.Sound("/home/pi/Raspi_RFID_player/assets/startup.wav")
+        startup = pygame.mixer.Sound(
+            "/home/pi/Raspi_RFID_player/assets/startup.wav")
         startup.play()
 
     print("\n RFID Player Ready")
